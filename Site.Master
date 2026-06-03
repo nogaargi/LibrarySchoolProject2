@@ -1,0 +1,107 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="LibraryClient.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl; /* יישור לימין */
+            background-color: #f4f7f6;
+            margin: 0;
+        }
+
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            background-color: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+
+            .nav a {
+                color: white;
+                text-decoration: none;
+                margin: 0 15px;
+                font-weight: bold;
+            }
+
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            min-height: 400px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        /* עיצוב אוטומטי לכל הטבלאות (GridView) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: #2980b9;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="header">
+            <h1>STORY NEST</h1>
+
+        </div>
+
+        <div class="nav" style="display: block; width: 100%; text-align: center;">
+
+            <a href="Home.aspx">בית</a>
+
+            <asp:Panel ID="pnlGuest" runat="server" Style="display: inline;">
+                <a href="Login.aspx">התחברות</a>
+                <a href="Register.aspx">הרשמה</a>
+            </asp:Panel>
+
+            <asp:Panel ID="pnlUser" runat="server" Style="display: inline;">
+                <a href="ShowBooks.aspx">רשימת ספרים</a>
+                <a href="MyProfile.aspx" style="margin-right: 10px;">האזור האישי שלי</a>
+                <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" Style="color: white; text-decoration: none; margin-right: 15px; font-weight: bold;">התנתקות</asp:LinkButton>
+            </asp:Panel>
+
+            <asp:Panel ID="pnlAdmin" runat="server" Style="display: inline;">
+                <a href="ShowBooks.aspx">רשימת ספרים</a>
+                <a href="MyProfile.aspx" style="margin-right: 10px;">האזור האישי שלי</a>
+                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="btnLogout_Click" Style="color: white; text-decoration: none; margin-right: 15px; font-weight: bold;">התנתקות</asp:LinkButton>
+                <asp:HyperLink ID="lnkAdmin" runat="server" NavigateUrl="~/AdminPage.aspx">פאנל ניהול</asp:HyperLink>
+            </asp:Panel>
+
+        </div>
+
+        <div class="container">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <!-- כאן יכנס התוכן של כל דף -->
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
